@@ -1,3 +1,5 @@
+import bit
+import random
 import bitcoin
 import blockcypher
 
@@ -7,9 +9,11 @@ from bit_help.network import types
 
 
 
-class Network:
-
-
+class Network(types.Address):
+    def __init__(self, address=None, public_key=None, private_key=None):
+        super().__init__(address, public_key, private_key)
+        self.bit_key = bit.PrivateKey(super().wif)
+        
     def create_address(self):
         private_key = bitcoin.random_key()
         public_key = bitcoin.privtopub(private_key)
@@ -27,7 +31,14 @@ class Network:
         pass
 
     def balance(self):
-        balance_in_satoshis = blockcypher.get_total_balance(self.address)
+        service = random.choice(["blockcypher","bit",])
+        
+        if "blockcypher" == service:
+            balance_in_satoshis = blockcypher.get_total_balance(self.address)
+        elif "bit" == service:
+            balance_in_satoshis = self.bit_key.sget_balance()
+            
         balance_in_bitcoins = utilits.convert_satoshis_to_bitcoins(balance_in_satoshis)
         return balance_in_bitcoins
+
 
