@@ -13,3 +13,9 @@ class Address:
     @property
     def key(self):
         return self.__key
+    
+    def __str__(self):
+        response =  "Private key: {}\nPublic key: {}\nAddress: {}\n"
+        response = response.format(self.key.public, self.key.public, self.address)
+        return reponse
+    
