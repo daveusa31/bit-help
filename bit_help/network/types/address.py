@@ -30,7 +30,7 @@ class Address:
                 "public": self.key.public,
                 "private": self.key.private,
             },
-            "address": self.addressm,
+            "address": self.address,
         }
-        return str(reponse)
+        return str(response)
     
