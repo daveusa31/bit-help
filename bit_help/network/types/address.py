@@ -25,7 +25,12 @@ class Address:
         
     
     def __str__(self):
-        response =  "Private key: {}\nPublic key: {}\nAddress: {}\n"
-        response = response.format(self.key.public, self.key.public, self.address)
-        return reponse
+        response = {
+            "key": {
+                "public": self.key.public,
+                "private": self.key.private,
+            },
+            "address": self.addressm,
+        }
+        return str(reponse)
     

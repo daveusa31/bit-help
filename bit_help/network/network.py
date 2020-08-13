@@ -41,7 +41,9 @@ class Network(types.Address):
         """
         fee = self.__commission_calculate(fee, speed)
         output = [(address, sum, "btc")]
-        response = self.bit_key.send(output, fee=fee)
+        
+        txid = self.bit_key.send(output, fee=fee)
+        response = types.Transaction(txid)
         return response
 
     def balance(self):
