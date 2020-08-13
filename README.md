@@ -17,8 +17,33 @@ pip3 install bit-help
 import bit_help
 ```
 
+# Генерация нового адреса и ключей
+
+```python
+import bit_help
+
+network = bit_help.Network()
+network.create_address()
+
+print(network.address)
+print(network.key.public)
+print(network.key.private)
+```
+
+# Создание транзакции
+
+```python
+import bit_help
+
+network = bit_help.Network()
+network.create_address()
+
+transaction = network.send_money("3Cwgr2g7vsi1bXDUkpEnVoRLA9w4FZfC69", 0.01, speed="average")
+print("Ссылка на транзацию {}".format(transaction.link.blockcypher))
 
 
 
 # TO DO
-- [ ] Добавить в utilits валидатор биткоин адресов формата P2WPKH 
+- [X] Добавить в utilits валидатор биткоин адресов формата P2WPKH 
+- [ ] Добавить гайд, как сгененировать адрес
+- [ ] Добавить гайд, как отправить монеты
