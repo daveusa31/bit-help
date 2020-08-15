@@ -16,9 +16,6 @@ install:
 
 script:
     - python setup.py install
-    - py.test --doctest-glob="*.rst" --doctest-modules --ignore=setup.py 
-    - coverage run tests 
+    - coverage run -m py.test tests
+    - bash <(curl -s https://codecov.io/bash)
   
-
-after_success:
-  - codecov
