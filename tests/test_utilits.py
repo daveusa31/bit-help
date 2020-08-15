@@ -4,10 +4,6 @@ import random
 import pytest
 
 
-os.chdir("../")
-sys.path[0] = os.getcwd()
-
-
 import bit_help
 
 

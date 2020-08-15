@@ -67,22 +67,6 @@ def encode_base58(bytestring):
     return zeros * '1' + result[::-1]  # reverse string
 
 def validate(bitcoin_address, decimal_prefixes=(0, 5)):
-    """Check the integrity of a bitcoin address
-    Returns True if the address is valid, False if not.
-    >>> validate('1AGNa15ZQXAZUgFiqJ2i7Z2DPU2J6hW62i')
-    True
-    >>> validate('')
-    False
-    Arguments are the address (as a string) and the allowed decimal prefixes
-    (the decimal 'version byte' or 'magic byte' that forms the first character
-    of an address). The value of decimal_prefixes can be a single integer if
-    only a single prefix should match (e.g. 0 to allow only P2PKH Bitcoin
-    addresses), a tuple of integers for multiple prefixes (e.g.  (0, 5) for
-    Bitcoin P2PKH and P2SH addresses) or None to allow any prefix. Default is
-    (0, 5).
-    For a list of prefixes, see (e.g.):
-        https://github.com/libbitcoin/libbitcoin/wiki/Altcoin-Version-Mappings
-    """
     if isinstance(decimal_prefixes, int):
         decimal_prefixes = (decimal_prefixes,)
     clen = len(bitcoin_address)
