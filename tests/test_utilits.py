@@ -41,3 +41,11 @@ def test_convert_bitcoins_to_satoshis(sum_in_bitcoins, need_sum_satoshis):
     
     assert sum_in_satoshis == need_sum_satoshis
 
+
+@pytest.mark.parametrize(("sum", "sum_in_str"), [
+    (1.0E-5, "0.00001000"),
+])
+def test_format_sum(sum, sum_in_str):
+    assert sum_in_str == bit_help.utilits.format_sum(sum)
+    
+
