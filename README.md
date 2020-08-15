@@ -1,6 +1,7 @@
 # bit-help
 
 [![Build Status](https://travis-ci.com/daveusa31/bit-help.svg?branch=master)](https://travis-ci.com/daveusa31/bit-help)
+[![codecov](https://codecov.io/gh/daveusa31/bit-help/branch/master/graph/badge.svg)](https://codecov.io/gh/daveusa31/bit-help)
 [![PyPi Package Version](https://img.shields.io/pypi/v/bit_help.svg?style=flat-square)](https://pypi.python.org/pypi/bit_help)
 [![PyPi status](https://img.shields.io/pypi/status/bit_help.svg?style=flat-square)](https://pypi.python.org/pypi/bit_help)
 [![Downloads](https://pepy.tech/badge/bit_help)](https://pepy.tech/project/bit_help)
