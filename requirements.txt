@@ -6,4 +6,4 @@ bitcoinlib==0.4.17
 random-data==0.1.5
 blockcypher==1.0.89
 bitcoinfees==0.0.0.1
-validators @ https://github.com/daveusa31/validators/archive/b662c88fd753775a85a9f366a4b76bf82fd17d4a.zip
+validators==0.18.0
