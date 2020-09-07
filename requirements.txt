@@ -6,4 +6,4 @@ bitcoinlib==0.4.17
 random-data==0.1.5
 blockcypher==1.0.89
 bitcoinfees==0.0.0.1
-validators==0.18.0
+validators==0.18.1
