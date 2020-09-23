@@ -1,4 +1,4 @@
-bit===0.7.1
+bit===0.7.2
 coinbase==2.1.0
 bitcoin==1.1.39
 requests==2.24.0
