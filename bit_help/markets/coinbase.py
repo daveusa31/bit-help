@@ -37,7 +37,7 @@ class Coinbase(Client):
 
     def price(self, currency="USD"):
         currency_pair = "BTC-{}".format(currency.upper()) 
-        price = self.client.get_buy_price(currency_pair=currency_pair)
+        price = self.client.get_sell_price(currency_pair=currency_pair)
         return float(price["amount"])
 
 
