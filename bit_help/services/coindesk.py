@@ -25,7 +25,7 @@ class Coindesk:
         price = float(self.__request(path)[currency]["rate_float"])
         return price
 
-    def historical_data(self, start='2013-09-01', end=None):
+    def historical_data(self, start="2013-09-01", end=None):
         if not end:
             end = datetime.datetime.now().strftime('%Y-%m-%d')
 
