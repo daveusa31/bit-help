@@ -44,7 +44,7 @@ class Coinbase(Client):
     def address_balance(self, address_id, confirmations=1):
         balance = 0
 
-        data = self.client.get_address_transactions(self.__account_id, address_id)
+        data = self.client.get_address_transactions(self.account_id, address_id)
         transactions = data["data"]
 
 
