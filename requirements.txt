@@ -2,7 +2,7 @@ bit===0.7.2
 coinbase==2.1.0
 bitcoin==1.1.39
 requests==2.24.0
-bitcoinlib==0.4.17
+bitcoinlib==0.4.19
 random-data==0.1.5
 blockcypher==1.0.89
 bitcoinfees==0.0.0.1
