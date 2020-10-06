@@ -1,8 +1,6 @@
 import validators
 
 
-
-
 def format_sum(sum):
     return "{:.8f}".format(sum) 
 
@@ -43,7 +41,6 @@ def convert_bitcoins_to_satoshis(sum_in_bitcoins: float):
     """ 
     sum_in_satoshis = int(sum_in_bitcoins * 100000000)
     return sum_in_satoshis
-
 
 
 def address_validate(address: str):
