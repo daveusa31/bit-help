@@ -91,7 +91,7 @@ class Coinbase(Client):
         return balance
 
 
-    def __check_confirmation_from_coinbase(self, transaction, balance):
+    def __check_confirmation_from_coinbase(self, transaction):
         if "confirmed" == transaction["network"]["status"]:
             response = True
         else:
