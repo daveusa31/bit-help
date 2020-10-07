@@ -14,7 +14,7 @@ with open("HISTORY.md", "r", encoding="utf-8") as f:
 
 setuptools.setup(
     name="bit_help",
-    version="0.0.2.1",
+    version="0.0.3",
     long_description=readme,
     long_description_content_type="text/markdown",
     author="daveusa31",
