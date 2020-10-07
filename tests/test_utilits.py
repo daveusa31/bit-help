@@ -39,3 +39,17 @@ def test_convert_bitcoins_to_satoshis(sum_in_bitcoins, need_sum_satoshis):
 ])
 def test_format_sum(_sum, sum_in_str):
     assert sum_in_str == bit_help.utilits.format_sum(_sum)
+
+
+def test_convert_fiat_to_bitcoin():
+    """
+    Проверка конвертации суммы биткоинов в фиат
+    """
+    assert isinstance(bit_help.utilits.convert_fiat_to_bitcoin(100, "rub"), float)
+
+
+def test_convert_bitcoin_to_fiat():
+    """
+        Проверка конвертации суммы фиате в биткоины
+    """
+    assert isinstance(bit_help.utilits.convert_bitcoin_to_fiat(0.001, "rub"), float)

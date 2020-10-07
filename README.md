@@ -39,7 +39,7 @@ import bit_help
 network = bit_help.Network()
 network.create_address()
 
-transaction = network.send_money("3Cwgr2g7vsi1bXDUkpEnVoRLA9w4FZfC69", 0.01, speed="average")
+transaction = network.send_money("3Cwgr2g7vsi1bXDUkpEnVoRLA9w4FZfC69",0.01,speed="average")
 print("Ссылка на транзацию {}".format(transaction.link.blockcypher))
 ```
 
