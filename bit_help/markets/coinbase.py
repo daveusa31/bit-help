@@ -1,6 +1,6 @@
 import random_data
 import blockcypher
-
+from coinbase.wallet import error
 from coinbase.wallet.client import Client
 
 from .. import utilits
@@ -18,13 +18,13 @@ class Coinbase(Client):
     """
 
     def __init__(self, api_key: str = random_api_key, api_secret: str = random_api_secret):
-        super().__init__(api_key, api_secret)  # Наследуем класс coinbase
-        self.__client = Client(api_key, api_secret)
-        self.__account_id = self.__client.get_primary_account()["id"]
+        super().__init__(api_key, api_secret)
+        self.__account_id = super().get_primary_account()["id"]
 
+    # Оставил для библиотек, юзающих этот атрибут. В будущем релизе вырежу
     @property
     def client(self):
-        return self.__client
+        return super()
 
     @property
     def account_id(self):
@@ -32,13 +32,13 @@ class Coinbase(Client):
 
     def price(self, currency="USD"):
         currency_pair = "BTC-{}".format(currency.upper())
-        price = self.client.get_sell_price(currency_pair=currency_pair)
+        price = super().get_sell_price(currency_pair=currency_pair)
         return float(price["amount"])
 
     def address_balance(self, address_id, confirmations=1):
         balance = 0
 
-        data = self.client.get_address_transactions(self.account_id, address_id)
+        data = super().get_address_transactions(self.account_id, address_id)
         transactions = data["data"]
 
         if 0 < len(transactions):
