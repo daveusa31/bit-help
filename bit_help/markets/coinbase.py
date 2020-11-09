@@ -85,3 +85,13 @@ class Coinbase(Client):
             response = False
 
         return response
+
+    @staticmethod
+    def is_valid(api_key, api_secret):
+        try:
+            Coinbase(api_key=api_key, api_secret=api_secret)
+            status = True
+        except error.AuthenticationError:
+            status = False
+
+        return status
