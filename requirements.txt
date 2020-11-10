@@ -7,4 +7,4 @@ bitcoinlib==0.5.0
 random-data==0.1.7
 blockcypher==1.0.90
 bitcoinfees==0.0.0.1
-cryptonator @ https://github.com/daveusa31/cryptonator/archive/ef0a3621e118c4537adba745521e849a1c081326.zip
+cryptonator==0.0.4
