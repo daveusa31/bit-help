@@ -3,7 +3,7 @@ coinbase==2.1.0
 bitcoin==1.1.39
 requests==2.24.0
 validators==0.18.1
-bitcoinlib==0.4.19
+bitcoinlib==0.5.0
 random-data==0.1.7
 blockcypher==1.0.90
 bitcoinfees==0.0.0.1
