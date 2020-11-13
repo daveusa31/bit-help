@@ -7,4 +7,4 @@ validators==0.18.1
 cryptonator==0.0.4
 random-data==0.1.7
 blockcypher==1.0.90
-bitcoinfees==0.0.0.1
+bitcoinfees==0.0.0.2
