@@ -1,10 +1,10 @@
-bit===0.7.2
+bit==0.7.2
 coinbase==2.1.0
 bitcoin==1.1.39
-requests==2.24.0
-validators==0.18.1
+requests==2.25.0
 bitcoinlib==0.5.0
+validators==0.18.1
+cryptonator==0.0.4
 random-data==0.1.7
 blockcypher==1.0.90
-bitcoinfees==0.0.0.1
-cryptonator @ https://github.com/daveusa31/cryptonator/archive/ef0a3621e118c4537adba745521e849a1c081326.zip
+bitcoinfees==0.0.0.2
