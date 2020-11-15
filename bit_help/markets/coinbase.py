@@ -35,6 +35,12 @@ class Coinbase(Client):
         price = super().get_sell_price(currency_pair=currency_pair)
         return float(price["amount"])
 
+    # noinspection PyMethodOverriding
+    # Взято отсюда https://gist.github.com/pylover/7870c235867cf22817ac5b096defb768
+    def send_money(self, btc_address, _sum, **kwargs):
+        _sum = utilits.format_sum(_sum)
+        return super().send_money(self.account_id, to=btc_address, amount=_sum, currency="BTC", **kwargs)
+
     def address_balance(self, address_id, confirmations=1):
         balance = 0
 
