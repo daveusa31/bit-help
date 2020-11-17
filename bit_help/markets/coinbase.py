@@ -21,11 +21,6 @@ class Coinbase(Client):
         super().__init__(api_key, api_secret)
         self.__account_id = super().get_primary_account()["id"]
 
-    # Оставил для библиотек, юзающих этот атрибут. В будущем релизе вырежу
-    @property
-    def client(self):
-        return super()
-
     @property
     def account_id(self):
         return self.__account_id
