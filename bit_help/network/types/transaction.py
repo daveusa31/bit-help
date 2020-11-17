@@ -5,14 +5,14 @@ class Transaction:
     def __init__(self, txid):
         self.__txid = txid
         self.__link = TransactionLink(txid)
-    
-    @property 
+
+    @property
     def txid(self):
         return self.__txid
-    
-    @property 
+
+    @property
     def link(self):
-        return self.__link 
+        return self.__link
 
     def __str__(self):
         response = {
@@ -24,17 +24,14 @@ class Transaction:
         return str(response)
 
 
-
-
 class TransactionLink:
     def __init__(self, txid):
         self.__blockcypher = services.Blockcypher.link_to_transaction(txid)
-    
+
     @property
     def blockcypher(self):
         return self.__blockcypher
-       
-       
+
     def __str__(self):
         response = {
             "blockcypher": self.__blockcypher,

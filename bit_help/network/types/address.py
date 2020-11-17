@@ -31,4 +31,4 @@ class Address:
             },
             "address": self.address,
         }
-        return response
+        return str(response)

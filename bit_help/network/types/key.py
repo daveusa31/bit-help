@@ -10,4 +10,3 @@ class Key:
     @property
     def private(self):
         return self.__private
-    
