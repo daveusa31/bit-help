@@ -20,6 +20,7 @@ class Coindesk:
 
     def price(self, currency="USD"):
         currency = currency.upper()
+        self.__check_currency(currency=currency)
 
         path = "currentprice/{}.json".format(currency)
         price = float(self.__request(path)[currency]["rate_float"])
@@ -51,13 +52,9 @@ class Coindesk:
 
     def __check_currency(self, currency):
         if not currency in self.__supported_currencies:
-            raise exceptions.InvalidCurrency()
+            raise exceptions.InvalidCurrency(currency)
 
-    def __request(self, path, params={}, use_bpi=True):
-        if "currency" in params:
-            self.__check_currency
-
-
+    def __request(self, path, params=(), use_bpi=True):
         url = self.__API_URL + path
         response = requests.get(url, params=params).json()
 

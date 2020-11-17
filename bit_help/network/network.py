@@ -7,6 +7,7 @@ import blockcypher
 
 
 from .. import utilits
+from bit_help import exceptions
 from bit_help.network import types
 
 
@@ -34,19 +35,20 @@ class Network(types.Address):
     def transaction_history(self):
         return bitcoin.history(self.address)
 
-    def send_money(self, address, _sum, fee=None, speed=None):
+    def send_money(self, address, _sum, fee_or_speed="average"):
         """
         Speed min, average, max
         """
-        fee = self.__commission_calculate(fee, speed)
+        fee = self.__commission_calculate(fee_or_speed)
         output = [(address, _sum, "btc")]
         
         txid = self.bit_key.send(output, fee=fee)
         response = types.Transaction(txid)
         return response
 
-    def balance(self):
-        service = random.choice(["blockcypher", "bit"])
+    def balance(self, service="random"):
+        if "random" == service:
+            service = random.choice(["blockcypher", "bit"])
         
         if "blockcypher" == service:
             balance_in_satoshis = blockcypher.get_total_balance(self.address)
@@ -56,17 +58,13 @@ class Network(types.Address):
         balance_in_bitcoins = utilits.convert_satoshis_to_bitcoins(balance_in_satoshis)
         return balance_in_bitcoins
 
-    def __commission_calculate(self, fee, speed):
-        if fee or speed:
-            if 0 < fee:
-                response = fee
-            elif speed:
-                if speed in self.__AVAILABLE_FEES:
-                    response = bitcoinfees.recommended()[self.__AVAILABLE_FEES[speed]]
-                else:
-                    exception_text = "Invalid speed. Available {}"
-                    raise ValueError(exception_text.format(self.__AVAILABLE_FEES))
+    def __commission_calculate(self, fee_or_speed):
+        if isinstance(fee_or_speed, float):
+            fee = fee_or_speed
+        elif fee_or_speed in self.__AVAILABLE_FEES:
+            fee = bitcoinfees.recommended()[self.__AVAILABLE_FEES[fee_or_speed]]
         else:
-            response = bitcoinfees.recommended()[self.__AVAILABLE_FEES["average"]]
+            available_speeds = [speed for speed in self.__AVAILABLE_FEES]
+            raise exceptions.InvalidSpeed("Invalid speed name. Available speeds: {}".format(available_speeds))
 
-        return response
+        return fee
