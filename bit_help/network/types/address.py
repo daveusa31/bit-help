@@ -1,11 +1,11 @@
 from .. import bitcoinUtilities
-from bit_help.network.types.key import key
+from bit_help.network.types.key import Key
 
 
 class Address:
     def __init__(self, address, public_key, private_key):
         self.__address = address
-        self.__key = key(public_key, private_key)
+        self.__key = Key(public_key, private_key)
         if self.key.private:
             self.__wif = bitcoinUtilities.BitcoinUtilities().privkey_to_wif(private_key)
         else:
@@ -18,12 +18,11 @@ class Address:
     @property
     def key(self):
         return self.__key
-    
+
     @property
     def wif(self):
         return self.__wif
-        
-    
+
     def __str__(self):
         response = {
             "key": {
@@ -32,5 +31,4 @@ class Address:
             },
             "address": self.address,
         }
-        return str(response)
-    
+        return response

@@ -1,4 +1,4 @@
-class key:
+class Key:
     def __init__(self, public, private):
         self.__public = public
         self.__private = private
@@ -10,3 +10,4 @@ class key:
     @property
     def private(self):
         return self.__private
+    
