@@ -7,4 +7,4 @@ class Cryptonator(cryptonator.Cryptonator):
 
     @staticmethod
     def price(currency="usd"):
-        return cryptonator.get_exchange_rate('btc', currency)
+        return cryptonator.get_exchange_rate("btc", currency)
