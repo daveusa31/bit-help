@@ -2,7 +2,7 @@ bit==0.7.2
 coinbase==2.1.0
 bitcoin==1.1.39
 requests==2.25.0
-bitcoinlib==0.5.0
+bitcoinlib==0.5.1.post1
 validators==0.18.1
 cryptonator==0.0.4
 random-data==0.1.7
